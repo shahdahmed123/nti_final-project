@@ -1,5 +1,5 @@
 # ----------------------------
-# Random ID للـ S3 Bucket
+# Random ID for S3 Bucket
 # ----------------------------
 resource "random_id" "elb_bucket_id" {
   byte_length = 4
@@ -15,10 +15,11 @@ resource "aws_s3_bucket" "elb_logs" {
     Name = "listenary-elb-logs"
   }
 
-  force_destroy = true # لازم تمسح أي objects جوه الـ bucket قبل destroy
+  force_destroy = true 
+
 }
 
-# S3 Bucket versioning (بديل عن deprecated versioning block)
+# S3 Bucket versioning 
 resource "aws_s3_bucket_versioning" "elb_logs_versioning" {
   bucket = aws_s3_bucket.elb_logs.id
   versioning_configuration {
@@ -121,7 +122,7 @@ resource "aws_lb_target_group" "listenary_tg" {
 }
 
 # ----------------------------
-# Listener للـ ALB
+# Listener for ALB
 # ----------------------------
 # ----------------------------
 # Outputs
@@ -143,3 +144,4 @@ resource "aws_lb_listener" "listenary_listener" {
     target_group_arn = aws_lb_target_group.listenary_tg.arn
   }
 }
+
