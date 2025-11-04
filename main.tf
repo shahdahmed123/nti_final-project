@@ -40,7 +40,7 @@ resource "aws_subnet" "public_subnet" {
 resource "aws_subnet" "public_subnet_2" {
   vpc_id                  = aws_vpc.main.id
   cidr_block              = "10.0.4.0/24"
-  availability_zone       = "eu-north-1b" # AZ مختلفة عن public_subnet
+  availability_zone       = "eu-north-1b" 
   map_public_ip_on_launch = true
 
   tags = {
@@ -179,3 +179,4 @@ resource "aws_iam_role_policy_attachment" "attach_ec2_read_to_jenkins" {
   role       = aws_iam_role.jenkins_ec2_role.name
   policy_arn = aws_iam_policy.jenkins_ec2_read.arn
 }
+
