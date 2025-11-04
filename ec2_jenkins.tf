@@ -40,7 +40,7 @@ resource "aws_security_group" "jenkins_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["197.48.254.12/32"] # replace with your IP or 0.0.0.0/0 for test (not recommended)
+    cidr_blocks = ["197.48.254.12/32"] 
     description = "SSH from admin"
   }
 
@@ -96,3 +96,4 @@ resource "aws_instance" "jenkins" {
               usermod -aG docker ubuntu
               EOF
 }
+
